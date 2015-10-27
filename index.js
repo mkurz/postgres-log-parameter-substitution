@@ -19,12 +19,12 @@ document.getElementById('generate').addEventListener('click', function() {
 		}
 		if(isFirst) {
 			// remove postgres log prefixes (e.g. '2015-10-20 15:57:52 CET LOG:' etc.)
-			if(line.indexOf('INSERT INTO') != -1) {
-				line = line.substring(line.indexOf('INSERT INTO'));
-			} else if(line.indexOf('DELETE FROM') != -1) {
-				line = line.substring(line.indexOf('DELETE FROM'));
-			} else if(line.indexOf('UPDATE') != -1) {
-				line = line.substring(line.indexOf('UPDATE'));
+			if(line.toUpperCase().indexOf('INSERT INTO') != -1) {
+				line = line.substring(line.toUpperCase().indexOf('INSERT INTO'));
+			} else if(line.toUpperCase().indexOf('DELETE FROM') != -1) {
+				line = line.substring(line.toUpperCase().indexOf('DELETE FROM'));
+			} else if(line.toUpperCase().indexOf('UPDATE') != -1) {
+				line = line.substring(line.toUpperCase().indexOf('UPDATE'));
 			} else {
 				alert('ERROR! Could not parse line: ' + line);
 			}
